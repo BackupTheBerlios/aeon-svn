@@ -1,0 +1,61 @@
+<%= error_messages_for :client %>
+
+<p>
+  <label>
+    Name:<br />
+    <%= text_field :client, :name %>
+  </label>
+</p>
+<p>
+  <label>Address:<br />
+    <%= text_field :client, :address_1 %>
+  </label><br/>
+  <%= text_field :client, :address_2 %>
+</p>
+<p>
+  <label>
+    City:<br />
+    <%= text_field :client, :city %>
+  </label>
+</p>
+<p>
+  <label>
+    Province:<br />
+    <%= text_field :client, :province %>
+  </label>
+</p>
+<p>
+  <label>
+    Postal Code:<br />
+    <%= text_field :client, :postal %>
+  </label>
+</p>
+<p>
+  <label>
+    Phone Number:<br />
+    <%= text_field :client, :phone %>
+  </label>
+</p>
+<p>
+  <label>
+    Cellular Number:<br />
+    <%= text_field :client, :cell %>
+  </label>
+</p>
+<p>
+  <label>
+    Email:<br />
+    <%= text_field :client, :email %>
+  </label>
+</p>
+<p>
+  <label>
+    Send Reminder Emails: <%= check_box :client, :email_reminder %>
+  </label>
+</p>
+<p>
+  <label>
+    Notes:<br />
+    <%= text_area :client, :notes %>
+  </label>
+</p>

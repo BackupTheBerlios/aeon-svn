@@ -1,0 +1,43 @@
+<table>
+  <tr>
+    <td><b>Name:</b></td>
+    <td><%=h @client.name %></td>
+  </tr>
+  <tr>
+    <td><b>Address:</b></td>
+    <td><%=h @client.address_1 %></td>
+  </tr>
+<% if @client.address_2 && @client.address_2.length > 0 then %>
+  <tr>
+    <td>&nbsp;</td>
+    <td><%=h @client.address_2 %></td>
+  </tr>
+<% end %>
+  <tr>
+    <td><b></b></td>
+    <td><%=h @client.city %>, <%=h @client.province %>&nbsp;&nbsp;<%=h @client.postal %></td>
+  </tr>
+  <tr>
+    <td><b>Phone:</b></td>
+    <td><%=h @client.phone %></td>
+  </tr>
+  <tr>
+    <td><b>Cellular:</b></td>
+    <td><%=h @client.cell %></td>
+  </tr>
+  <tr>
+    <td><b>Email:</b></td>
+    <td><%=h @client.email %><%= " (Reminder Email)" if @client.email_reminder %></td>
+  </tr>
+  <tr>
+    <td><b>Notes:</b></td>
+    <td><%=h @client.notes %></td>
+  </tr>
+  <tr>
+    <td><b>Appointments:</b></td>
+    <td><%= link_to 'List', { :controller => 'appointments', :action => 'list', :client => @client } %></td>
+  </tr>
+</table>
+
+<%= link_to 'Edit', :action => 'edit', :id => @client %> |
+<%= link_to 'Back', :action => 'list' %>

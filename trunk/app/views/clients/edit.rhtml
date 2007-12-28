@@ -1,0 +1,8 @@
+<h2>Edit Client</h2>
+
+<% form_tag :action => 'update', :id => @client do %>
+  <%= render :partial => 'form' %>
+  <p>
+    <%= submit_tag 'Save Changes' %>
+  </p>
+<% end %>

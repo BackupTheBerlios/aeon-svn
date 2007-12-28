@@ -1,0 +1,21 @@
+<%= error_messages_for 'appointment' %>
+
+<p>
+  <label for="appointment_occurs_on">Occurs on</label><br/>
+  <%= date_select 'appointment', 'occurs_on', :order => [:month, :day, :year]  %>
+</p>
+
+<p>
+  <label for="appointment_starts_at">Start Time</label><br/>
+  <%= time_select 'appointment', 'starts_at', {:minute_step => 15} %>
+</p>
+
+<p>
+  <label for="appointment_duration">Duration (in minutes)</label><br/>
+  <%= text_field 'appointment', 'duration', :size => 4 %>
+</p>
+
+<p>
+  <label for="appointment_client">Client</label><br/>
+  <%= select('client', 'client_id', Client.find(:all).collect {|c| [ c.name, c.id ] }, { :include_blank => false, :selected => (@appointment.client ? @appointment.client.id : nil) }) %>
+</p>

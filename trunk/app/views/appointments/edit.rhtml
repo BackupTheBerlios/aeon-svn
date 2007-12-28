@@ -1,0 +1,8 @@
+<h1>Editing Appointment</h1>
+
+<% form_tag :action => 'update', :id => @appointment do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Save' %>
+<% end %>
+
+<%= link_to 'Back', :action => 'list' %>

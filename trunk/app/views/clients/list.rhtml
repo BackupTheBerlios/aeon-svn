@@ -1,0 +1,22 @@
+<h1>Listing Clients</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Phone</th>
+  </tr>
+  
+<% for client in @clients %>
+  <tr>
+    <td><%= link_to h(client.name), :action => 'show', :id => client %></td>
+    <td><%=h client.phone %></td>
+    <td><%= link_to 'Appointments', { :controller => 'appointments', :action => 'list', :client => client } %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => client %></td>
+    <td><%= link_to 'Delete', { :action => 'destroy', :id => client }, :confirm => 'Are you sure you want to delete this client?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New client', :action => 'new' %>

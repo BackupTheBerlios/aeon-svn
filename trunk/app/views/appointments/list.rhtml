@@ -1,0 +1,33 @@
+<% if params[:client].blank? then %>
+  <h1>Listing Appointments</h1>
+<% else %>
+  <h1>Listing Appointments for <%= Client.find(params[:client]).name %></h1>
+<% end %>
+
+<table>
+
+</table>
+
+<table>
+  <tr>
+    <th align="left">Date</th>
+    <th align="left">Time</th>
+    <th align="left">Client</th>
+    <th align="left">Duration (in minutes)</th>
+  </tr>
+  
+<% for appointment in @appointments %>
+  <tr>
+    <td><%=h appointment.occurs_on %></td>
+    <td><%=h appointment.starts_at.strftime('%I:%M %p') %></td>
+    <td><%= link_to appointment.client.name,  { :controller => 'clients', :action => 'show', :id => appointment.client } %></td>
+    <td><%=h appointment.duration %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => appointment %></td>
+    <td><%= link_to 'Delete', { :action => 'destroy', :id => appointment }, :confirm => 'Are you sure you want to delete this appointment?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<p>
+<%= link_to 'New appointment', :action => 'new' %>
+</p>
